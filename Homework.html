@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>D3 course Homework2</title>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="Homework.css">
+    <script src="Homework.js"></script>
+    <h1> Wang Wei Jyun Homework-2</h1>
+
+    <hr>
+</head>
+
+<body>
+
+
+    <h1 class="section-1">一鍵擊發</h1>
+    <p class="Javause">
+        <script>
+            function launch() {
+                d3.select("p").text(Num(1911,2016));
+            }
+
+        </script>
+
+    </p>
+
+    <input type="button" onclick="launch()" value="啟動">
+    <hr>
+<script>
+    
+    d3.select("body")
+      .append("svg")
+      .attr({
+        width:400,
+        height:400,
+        id:"svg1"
+    });
+    var svg1 = d3.select("#svg1");
+    
+    svg1.append("rect")
+        .attr({
+        x:0,
+        y:0,
+        width:400,
+        height:400,
+        fill:"#FDF5E6"
+    });
+    
+    for(i=0;i<=4;i++){
+    svg1.append("line")
+        .attr({
+        x1:0,
+        y1:80+60*i,
+        x2:400,
+        y2:80+60*i,
+        stroke:"black",
+        "stroke-width":2
+    });
+    }
+    
+    svg1.append("circle")
+        .attr({
+        cx:200,
+        cy:230,
+        r:30
+    });
+    
+    svg1.append("rect")
+        .attr({
+        x:225,
+        y:80,
+        width:5,
+        height:150
+    });
+    
+    svg1.append("text")
+        .attr({
+        x:168,
+        y:400,
+        "font-size":100,
+        "font-family":"arial"
+    }).text("A") ;
+    
+    </script>
+    
+    <hr>
+    
+<script>
+        function Num(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N;
+
+        };
+        
+        d3.select("body")
+            .append("svg")
+            .attr({
+                width: 500,
+                height: 300,
+                id: "svg2"
+            });
+        var svg2 = d3.select("#svg2");
+
+        for (i = 0; i < 20; i++) {
+            
+            var Random = Num(20,300);
+            svg2.append("rect")
+                .attr({
+                    x: 0,
+                    y: 10 + i * 12,
+                    width: Random,
+                    height: 10,
+                    fill: "red",
+
+                });
+            svg2.append("text")
+                .attr({
+                        x:10+ Random,
+                        y: 20 + i * 12,
+                        "font-size": "12px" ,
+                        "text-anchor":"start"
+                    }).text(Random);
+                }
+
+    </script>
+
+<hr>
+
+ <script>
+        d3.select("body")
+            .append("svg")
+            .attr({
+                width: 800,
+                height: 600,
+                id: "svg3"
+            });
+
+        var svg3 = d3.select("#svg3");
+
+        function Num(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N;
+        };
+
+        var points = "0,0";
+        
+        for (i = 0; i < 20; i++) {
+
+            var Random = Num(20, 300);
+
+            points = points + " " + (20 + Random) + "," + (20 + i * 10);
+
+            svg3.append("circle")
+                .attr({
+                    cx: 20 + Random,
+                    cy: 20 + i * 10,
+                    r: 5,
+                    fill: "red"
+                });
+
+            svg3.append("text")
+                .attr({
+                    x: 23 + Random,
+                    y: 23 + i * 10,
+                    "font-anchor": "end",
+                    "font-size": "12px"
+                }).text(Random);
+
+        }
+
+        points = points + " 0,350";
+
+        svg3.append("polyline")
+            .attr({
+                points: points,
+
+                stroke: "black",
+                fill: "rgba(0,0,0,0)"
+            });
+
+    </script>
+
+
+
+
+</body>
+
+</html>
